@@ -1,11 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./style.css";
 import UserDetails from "./UserDetails";
 import { useContext } from "react";
 import { ThemeContexts3 } from "../contexts/ThemeContexts3";
+import axios from "axios";
 
 const Experience = () => {
   const { theme3, handleChangeTheme3 } = useContext(ThemeContexts3);
+    const [company, setCompany] = useState("");
+    const [startYear, setStartYear] = useState("");
+    const [endYear, setEndYear] = useState("");
+  const [designation, setDesignation] = useState("");
+
+      const handleClick = () => {
+      const jsonData = {
+        company: company,
+        startYear: startYear,
+        endYear: endYear,
+        designation: designation,
+      };
+      axios.post(
+        "https://instagramclonedata.herokuapp.com/experience/",
+        jsonData
+      );
+      alert("Successfully Submited ...");
+      handleChangeTheme3();
+      setCompany("");
+      setStartYear("");
+      setEndYear("");
+      setDesignation("");
+    };
+  
     return (
       <>
         <div className="row maxWidth">
@@ -26,6 +51,8 @@ const Experience = () => {
                     className="form-control"
                     id="Company"
                     placeholder="Company"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
                   />
                 </div>
 
@@ -38,6 +65,8 @@ const Experience = () => {
                     className="form-control"
                     id="startYear"
                     placeholder="Start Year"
+                    value={startYear}
+                    onChange={(e) => setStartYear(e.target.value)}
                   />
                 </div>
 
@@ -50,6 +79,8 @@ const Experience = () => {
                     className="form-control"
                     id="endYear"
                     placeholder="End Year"
+                    value={endYear}
+                    onChange={(e) => setEndYear(e.target.value)}
                   />
                 </div>
 
@@ -62,6 +93,8 @@ const Experience = () => {
                     className="form-control"
                     id="designation"
                     placeholder="Designation"
+                    value={designation}
+                    onChange={(e) => setDesignation(e.target.value)}
                   />
                 </div>
 
@@ -69,7 +102,7 @@ const Experience = () => {
                   type="button"
                   className="btn btn-primary px-5 btn-lg float-end"
                   disabled={theme3}
-                  onClick={handleChangeTheme3}
+                  onClick={handleClick}
                 >
                   Submit
                 </button>

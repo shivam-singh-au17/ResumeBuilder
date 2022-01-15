@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Create from "./Create";
-import Edit from "./Edit";
 import Education from "./Education";
 import Experience from "./Experience";
 import Home from "./Home";
@@ -26,10 +25,6 @@ const Routes = () => {
           <Create
           />
         </Route>
-        <Route path="/edit">
-          <NavBar />
-          <Edit />
-        </Route>
         <Route path="/view">
           <NavBar />
           <View />
@@ -49,11 +44,6 @@ const Routes = () => {
         <Route path="/skills">
           <NavBar />
           <Skills />
-        </Route>
-
-        <Route path="/editDetails">
-          <NavBar />
-          <Edit />
         </Route>
         <Route>
           <div className="showError">
