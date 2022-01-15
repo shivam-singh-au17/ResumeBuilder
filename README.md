@@ -25,7 +25,7 @@ npm start
 
 # Deployment Link
 
-### If you want to see our project click this URL => https://resume-builder-puce.vercel.app/
+### If you want to see my project click this URL => https://resume-builder-puce.vercel.app/
 
 
 # Some screenshots of our project
