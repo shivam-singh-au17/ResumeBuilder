@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
 import UserDetails from "./UserDetails";
+import { useContext } from "react";
+import { ThemeContexts1 } from "../contexts/ThemeContexts1";
 
 const Create = () => {
-   const [btnState, setBtnState] = useState(false);
 
-   const handleClick = () => {
-     setBtnState(true);
-     console.log(666666);
-   };
+  const { theme1, handleChangeTheme1 } = useContext(ThemeContexts1);
+  
   return (
     <>
       <div className="row maxWidth">
@@ -74,8 +73,8 @@ const Create = () => {
               <button
                 type="button"
                 className="btn btn-primary px-5 btn-lg float-end"
-                disabled={btnState}
-                onClick={handleClick}
+                disabled={theme1}
+                onClick={handleChangeTheme1}
               >
                 Submit
               </button>

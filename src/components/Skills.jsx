@@ -1,8 +1,12 @@
 import React from "react";
 import "./style.css";
 import UserDetails from "./UserDetails";
+import { useContext } from "react";
+import { ThemeContexts4 } from "../contexts/ThemeContexts4";
 
 const Skills = () => {
+  const { theme4, handleChangeTheme4 } = useContext(ThemeContexts4);
+
   return (
     <>
       <div className="row maxWidth">
@@ -29,6 +33,8 @@ const Skills = () => {
               <button
                 type="button"
                 className="btn btn-primary px-5 btn-lg float-end"
+                disabled={theme4}
+                onClick={handleChangeTheme4}
               >
                 Submit
               </button>
@@ -41,3 +47,5 @@ const Skills = () => {
 };
 
 export default Skills;
+
+
