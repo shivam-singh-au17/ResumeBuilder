@@ -17,7 +17,7 @@ const Education = () => {
         institute: institute,
         startYear: startYear,
         endYear: endYear,
-        degree: degree,
+        phone: degree,
       };
       axios.post(
         "https://instagramclonedata.herokuapp.com/education/",
